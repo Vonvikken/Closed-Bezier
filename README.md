@@ -1,3 +1,5 @@
+![GitHub top language](https://img.shields.io/github/languages/top/Vonvikken/Closed-Bezier)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Vonvikken/Closed-Bezier)
 [![LICENSE](https://img.shields.io/github/license/Vonvikken/Closed-Bezier.svg)](https://github.com/Vonvikken/Closed-Bezier/blob/master/LICENSE)
 
 # Closed Bézier curves
