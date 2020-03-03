@@ -1,4 +1,4 @@
-![GitHub](https://img.shields.io/github/license/Vonvikken/Closed-Bezier)
+[![LICENSE](https://img.shields.io/github/license/Vonvikken/Closed-Bezier.svg)](https://github.com/Vonvikken/Closed-Bezier/blob/master/LICENSE)
 
 # Closed Bézier curves
 A simple JavaFX application that shows the implementation of a closed (and animated) Bézier curve.
