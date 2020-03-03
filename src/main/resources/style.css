@@ -1,0 +1,62 @@
+/******************************************************************************
+ * Class:     style.css                                                       *
+ * Author:    Vincenzo Stornanti                                              *
+ *                                                                            *
+ * Copyright 2020 Vincenzo Stornanti                                          *
+ *                                                                            *
+ * Licensed under the Apache License, Version 2.0 (the "License");            *
+ * you may not use this file except in compliance with the License.           *
+ * You may obtain a copy of the License at                                    *
+ *                                                                            *
+ *     http://www.apache.org/licenses/LICENSE-2.0                             *
+ *                                                                            *
+ * Unless required by applicable law or agreed to in writing, software        *
+ * distributed under the License is distributed on an "AS IS" BASIS,          *
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   *
+ * See the License for the specific language governing permissions and        *
+ * limitations under the License.                                             *
+ ******************************************************************************/
+
+#root {
+    -fx-background-color: #313335;
+}
+
+.axis {
+    -fx-stroke: #C8C8C8;
+    -fx-stroke-width: 2px;
+}
+
+.polygon {
+    -fx-stroke: red;
+}
+
+.point {
+    -fx-fill: yellow;
+}
+
+.radius {
+    -fx-stroke: blue;
+}
+
+.control-point {
+    -fx-stroke: grey;
+    -fx-stroke-width: 1px;
+    -fx-fill: transparent;
+}
+
+.control-line {
+    -fx-stroke: grey;
+    -fx-stroke-width: 1px;
+}
+
+.curve {
+    -fx-stroke: green;
+    -fx-stroke-width: 2px;
+    -fx-stroke-line-cap: round;
+    -fx-fill: green;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}

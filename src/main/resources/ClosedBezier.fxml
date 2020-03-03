@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.control.Label?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Class:     ClosedBezier.fxml                                              ~
+  ~ Author:    Vincenzo Stornanti                                             ~
+  ~                                                                           ~
+  ~ Copyright 2020 Vincenzo Stornanti                                         ~
+  ~                                                                           ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");           ~
+  ~ you may not use this file except in compliance with the License.          ~
+  ~ You may obtain a copy of the License at                                   ~
+  ~                                                                           ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0                            ~
+  ~                                                                           ~
+  ~ Unless required by applicable law or agreed to in writing, software       ~
+  ~ distributed under the License is distributed on an "AS IS" BASIS,         ~
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  ~
+  ~ See the License for the specific language governing permissions and       ~
+  ~ limitations under the License.                                            ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:id="root"
+            fx:controller="org.vonvikken.closedbezier.ClosedBezierController"
+            stylesheets="style.css">
+    <Line styleClass="axis" startX="${root.width/2}" endX="${root.width/2}" endY="${root.height}"/>
+    <Line styleClass="axis" startY="${root.height/2}" endX="${root.width}" endY="${root.height/2}"/>
+    <Label fx:id="labelX" AnchorPane.leftAnchor="30.0" AnchorPane.bottomAnchor="60.0"/>
+    <Label fx:id="labelY" AnchorPane.leftAnchor="30.0" AnchorPane.bottomAnchor="30.0"/>
+</AnchorPane>
