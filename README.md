@@ -29,6 +29,6 @@ The trick of perfectly linking two Bézier curves is to make sure that:
 ## Run
 `mvn javafx:run`
 
-##TODOs
+## TODOs
 * Configurable parameters
 * Some comments in the code...
