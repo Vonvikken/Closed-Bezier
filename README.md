@@ -13,7 +13,7 @@ The trick of perfectly linking two Bézier curves is to make sure that:
 * the end point of the first curve is the same of the start point of the second one (_shown in yellow in the figure
  below_);
 * the line connecting the last control point of the first line and the first control point of the second one passes
- through the common point of the two curves (_the control points and the lines are shown in grey in the figure below_). 
+ through the common point of the two curves (_the control points and the lines are shown in grey in the figure below_).
 
 [Bézier curves at Wikipedia.org](https://en.wikipedia.org/wiki/B%C3%A9zier_curve)
 

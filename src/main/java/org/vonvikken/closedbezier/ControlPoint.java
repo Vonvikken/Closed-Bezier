@@ -24,22 +24,21 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 
 class ControlPoint extends PolarPoint {
+  private final DoubleProperty distance = new SimpleDoubleProperty();
 
-    private final DoubleProperty distance = new SimpleDoubleProperty();
+  ControlPoint(final PolarPoint node, final boolean opposite) {
 
-    ControlPoint(final PolarPoint node, final boolean opposite) {
+    super(node.getQuadrant());
+    this.centerXProperty().bind(Bindings.createDoubleBinding(node::getX, node.xProperty()));
+    this.centerYProperty().bind(Bindings.createDoubleBinding(node::getY, node.yProperty()));
 
-        super(node.getQuadrant());
-        this.centerXProperty().bind(Bindings.createDoubleBinding(node::getX, node.xProperty()));
-        this.centerYProperty().bind(Bindings.createDoubleBinding(node::getY, node.yProperty()));
+    this.absoluteMagnitude.unbind();
+    this.absoluteMagnitude.bind(this.distance);
 
-        this.absoluteMagnitude.unbind();
-        this.absoluteMagnitude.bind(this.distance);
+    this.normalizedPhaseProperty().bind(node.normalizedPhaseProperty().add(opposite ? -1.0 : 1.0));
+  }
 
-        this.normalizedPhaseProperty().bind(node.normalizedPhaseProperty().add(opposite ? -1.0 : 1.0));
-    }
-
-    DoubleProperty distanceProperty() {
-        return this.distance;
-    }
+  DoubleProperty distanceProperty() {
+    return this.distance;
+  }
 }

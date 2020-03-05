@@ -20,18 +20,18 @@
 package org.vonvikken.closedbezier;
 
 public enum Quadrant {
-    LOWER_RIGHT(0),
-    LOWER_LEFT(1),
-    UPPER_LEFT(2),
-    UPPER_RIGHT(3);
+  LOWER_RIGHT(0),
+  LOWER_LEFT(1),
+  UPPER_LEFT(2),
+  UPPER_RIGHT(3);
 
-    private final int offset;
+  private final int offset;
 
-    Quadrant(final int offset) {
-        this.offset = offset;
-    }
+  Quadrant(final int offset) {
+    this.offset = offset;
+  }
 
-    int getOffset() {
-        return this.offset;
-    }
+  int getOffset() {
+    return this.offset;
+  }
 }

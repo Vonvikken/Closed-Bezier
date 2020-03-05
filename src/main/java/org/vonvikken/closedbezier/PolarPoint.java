@@ -27,72 +27,90 @@ import javafx.beans.property.SimpleDoubleProperty;
 
 class PolarPoint {
 
-    private final DoubleProperty normalizedMagnitude = new SimpleDoubleProperty();
-    private final DoubleProperty normalizedPhase = new SimpleDoubleProperty();
-    private final DoubleProperty centerX = new SimpleDoubleProperty();
-    private final DoubleProperty centerY = new SimpleDoubleProperty();
-    protected final ReadOnlyDoubleWrapper absoluteMagnitude = new ReadOnlyDoubleWrapper();
-    private final ReadOnlyDoubleWrapper absolutePhase = new ReadOnlyDoubleWrapper();
-    private final ReadOnlyDoubleWrapper coordinateX = new ReadOnlyDoubleWrapper();
-    private final ReadOnlyDoubleWrapper coordinateY = new ReadOnlyDoubleWrapper();
-    private final Quadrant quadrant;
+  private final DoubleProperty normalizedMagnitude = new SimpleDoubleProperty();
+  private final DoubleProperty normalizedPhase = new SimpleDoubleProperty();
+  private final DoubleProperty centerX = new SimpleDoubleProperty();
+  private final DoubleProperty centerY = new SimpleDoubleProperty();
+  protected final ReadOnlyDoubleWrapper absoluteMagnitude = new ReadOnlyDoubleWrapper();
+  private final ReadOnlyDoubleWrapper absolutePhase = new ReadOnlyDoubleWrapper();
+  private final ReadOnlyDoubleWrapper coordinateX = new ReadOnlyDoubleWrapper();
+  private final ReadOnlyDoubleWrapper coordinateY = new ReadOnlyDoubleWrapper();
+  private final Quadrant quadrant;
 
-    PolarPoint(final Quadrant quadrant) {
+  PolarPoint(final Quadrant quadrant) {
 
-        this.quadrant = quadrant;
-        final var angleOffset = Math.PI / 2.0 * quadrant.getOffset();
+    this.quadrant = quadrant;
+    final var angleOffset = Math.PI / 2.0 * quadrant.getOffset();
 
-        this.absoluteMagnitude.bind(Bindings.createDoubleBinding(() -> {
-            final var xOffset = this.centerX.get();
-            final var yOffset = this.centerY.get();
-            return this.normalizedMagnitude.get() * Math.min(xOffset, yOffset);
-        }, this.normalizedMagnitude, this.centerX, this.centerY));
+    this.absoluteMagnitude.bind(
+        Bindings.createDoubleBinding(
+            () -> {
+              final var xOffset = this.centerX.get();
+              final var yOffset = this.centerY.get();
+              return this.normalizedMagnitude.get() * Math.min(xOffset, yOffset);
+            },
+            this.normalizedMagnitude,
+            this.centerX,
+            this.centerY));
 
-        this.absolutePhase.bind(Bindings.createDoubleBinding(() -> Math.toRadians(this.normalizedPhase.get()
-            * 90.0), this.normalizedPhase));
+    this.absolutePhase.bind(
+        Bindings.createDoubleBinding(
+            () -> Math.toRadians(this.normalizedPhase.get() * 90.0), this.normalizedPhase));
 
-        this.coordinateX.bind(Bindings.createDoubleBinding(() -> this.absoluteMagnitude.get()
-            * Math.cos(this.absolutePhase.get() + angleOffset)
-            + this.centerX.get(), this.absoluteMagnitude, this.absolutePhase, this.centerX, this.centerY));
+    this.coordinateX.bind(
+        Bindings.createDoubleBinding(
+            () ->
+                this.absoluteMagnitude.get() * Math.cos(this.absolutePhase.get() + angleOffset)
+                    + this.centerX.get(),
+            this.absoluteMagnitude,
+            this.absolutePhase,
+            this.centerX,
+            this.centerY));
 
-        this.coordinateY.bind(Bindings.createDoubleBinding(() -> this.absoluteMagnitude.get()
-            * Math.sin(this.absolutePhase.get() + angleOffset)
-            + this.centerY.get(), this.absoluteMagnitude, this.absolutePhase, this.centerX, this.centerY));
-    }
+    this.coordinateY.bind(
+        Bindings.createDoubleBinding(
+            () ->
+                this.absoluteMagnitude.get() * Math.sin(this.absolutePhase.get() + angleOffset)
+                    + this.centerY.get(),
+            this.absoluteMagnitude,
+            this.absolutePhase,
+            this.centerX,
+            this.centerY));
+  }
 
-    DoubleProperty normalizedMagnitudeProperty() {
-        return this.normalizedMagnitude;
-    }
+  DoubleProperty normalizedMagnitudeProperty() {
+    return this.normalizedMagnitude;
+  }
 
-    DoubleProperty normalizedPhaseProperty() {
-        return this.normalizedPhase;
-    }
+  DoubleProperty normalizedPhaseProperty() {
+    return this.normalizedPhase;
+  }
 
-    DoubleProperty centerXProperty() {
-        return this.centerX;
-    }
+  DoubleProperty centerXProperty() {
+    return this.centerX;
+  }
 
-    DoubleProperty centerYProperty() {
-        return this.centerY;
-    }
+  DoubleProperty centerYProperty() {
+    return this.centerY;
+  }
 
-    ReadOnlyDoubleProperty xProperty() {
-        return this.coordinateX.getReadOnlyProperty();
-    }
+  ReadOnlyDoubleProperty xProperty() {
+    return this.coordinateX.getReadOnlyProperty();
+  }
 
-    double getX() {
-        return this.coordinateX.get();
-    }
+  double getX() {
+    return this.coordinateX.get();
+  }
 
-    ReadOnlyDoubleProperty yProperty() {
-        return this.coordinateY.getReadOnlyProperty();
-    }
+  ReadOnlyDoubleProperty yProperty() {
+    return this.coordinateY.getReadOnlyProperty();
+  }
 
-    double getY() {
-        return this.coordinateY.get();
-    }
+  double getY() {
+    return this.coordinateY.get();
+  }
 
-    Quadrant getQuadrant() {
-        return this.quadrant;
-    }
+  Quadrant getQuadrant() {
+    return this.quadrant;
+  }
 }
