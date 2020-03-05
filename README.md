@@ -17,7 +17,7 @@ The trick of perfectly linking two Bézier curves is to make sure that:
 
 [Bézier curves at Wikipedia.org](https://en.wikipedia.org/wiki/B%C3%A9zier_curve)
 
-![](Closed-Bezier.png)
+![](Closed-Bezier.gif)
 
 ## Requirements
 * Java 13 (but can be run since Java 11)
