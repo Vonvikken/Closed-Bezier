@@ -6,7 +6,7 @@
 A simple JavaFX application that shows the implementation of a closed (and animated) Bézier curve.
 
 ## Intro
-I created this application because I needed to create a closed path with smoothly changing gradients. The Bézier curves
+I wrote this application because I needed to create a closed path with smoothly changing gradients. The Bézier curves
 change smoothly but are open, so I had to make some adjustments to make their ends link seamlessly.
 
 The trick of perfectly linking two Bézier curves is to make sure that:
